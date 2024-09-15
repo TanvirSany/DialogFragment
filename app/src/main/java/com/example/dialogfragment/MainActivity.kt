@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.FragmentManager
 import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
@@ -31,8 +32,17 @@ class MainActivity : AppCompatActivity() {
 
         show.setOnClickListener{
 
+            val fragmentManager: FragmentManager = supportFragmentManager
+            val myDIalogFragment = MyDIalogFragment()
+
+            myDIalogFragment.show(fragmentManager,"MyDialogFragment")
 
         }
 
+    }
+
+    fun getUserData(userName: String, userAge: Int){
+        name.text = "Name: $userName"
+        age.text = "Age:$userAge"
     }
 }
